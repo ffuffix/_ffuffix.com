@@ -701,7 +701,7 @@ function AnimateStrategy() {
     if (!TeamPoints._last) TeamPoints._last = Now;
     const Dt = (Now - (TeamPoints._last || Now)) / 1000;
     // TeamPoints[T] / 10
-    TeamPoints[T] += PointsPerSec[T] * Dt + (Bonus > 0 ? (0.5) * Dt : 0);
+    TeamPoints[T] += PointsPerSec[T] * Dt + (Bonus > 0 ? (0.5 * Bonus) * Dt : 0);
   }
   TeamPoints._last = Now;
   let Winner = null;
