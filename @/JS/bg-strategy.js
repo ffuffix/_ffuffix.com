@@ -353,7 +353,7 @@ function AnimateStrategy() {
   Ctx.restore();
   const RedDots = Units.filter(U => U.alive && U.team === 0).length;
   const BlueDots = Units.filter(U => U.alive && U.team === 1).length;
-  const DotsGoal = 200;
+  const DotsGoal = 375;
   const BarWidth = Width;
   const BarHeight = 2;
   const BarX = 0;
@@ -701,7 +701,7 @@ function AnimateStrategy() {
     if (!TeamPoints._last) TeamPoints._last = Now;
     const Dt = (Now - (TeamPoints._last || Now)) / 1000;
     // TeamPoints[T] / 10
-    TeamPoints[T] += PointsPerSec[T] * Dt + (Bonus > 0 ? (0.1) * Dt : 0);
+    TeamPoints[T] += PointsPerSec[T] * Dt + (Bonus > 0 ? (0.2) * Dt : 0);
   }
   TeamPoints._last = Now;
   let Winner = null;
