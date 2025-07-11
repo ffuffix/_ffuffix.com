@@ -25,9 +25,9 @@ const StructureColors = {
   railgun: ['#b2bec3', '#636e72']
 };
 const StructureRadius = { factory: 6, cannon: 6, elixir: 7, railgun: 8 };
-const StructureHealth = { factory: 3, cannon: 2, elixir: 1, railgun: 3 };
+const StructureHealth = { factory: 3, cannon: 2, elixir: 1, railgun: 4 };
 const StructureSpeed = 0.07;
-const BuildCost = { factory: 5, cannon: 7, elixir: 11, railgun: 30 };
+const BuildCost = { factory: 5, cannon: 7, elixir: 7, railgun: 20 };
 const PointsPerSec = [0.5, 0.5];
 const PointsBuildingBonus = 1.5;
 let Units = [];
