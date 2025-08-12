@@ -1,0 +1,86 @@
+
+.card {
+    margin: 20px auto;
+    padding: clamp(70px, 10vw, 200px) 20px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    transition: margin-left 0.3s ease-in-out, transform 0.3s ease;
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+.card-small {
+    margin: 20px auto;
+    padding: clamp(70px, 10vw, 100px) 20px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    transition: margin-left 0.3s ease-in-out, transform 0.3s ease;
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+.card h1, .card h2 {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    margin-bottom: clamp(0.75rem, 2vw, 1rem);
+    font-weight: 900;
+}
+
+.card h3 {
+    font-size: clamp(1.2rem, 4vw, 1.6rem);
+    margin-bottom: clamp(0.5rem, 1.5vw, 1rem);
+    font-weight: 700;
+}
+
+.card p {
+    font-size: clamp(0.9rem, 3vw, 1.1rem);
+    color: var(--ac-4);
+    line-height: 1.6;
+}
+
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.g-silver-1 {
+    background: linear-gradient(135deg, #1a1a1a, #111111, #0f0f0f);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+}
+
+.cta-button {
+    background: var(--foreground);
+    color: var(--background);
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.cta-button:hover {
+    background: var(--ac-4);
+    transform: scale(1.05);
+}
+
+.g-discord {
+    background: linear-gradient(135deg, #5865F2, #7289DA, #4E5BD1, #3A47A7);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+}
+
+.g-twitter {
+    background: linear-gradient(135deg, #1DA1F2, #0C6EB8, #1A8CD8, #004E8F);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+}
+
+.g-roblox {
+    background: linear-gradient(135deg, #FF4B2B, #FF416C, #E63E3E, #B02E2E);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+}
