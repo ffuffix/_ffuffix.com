@@ -1,86 +1,54 @@
+<!--path /art-->
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/svg+xml" href="@/SVG/ffuffix.svg">
-    <link rel="stylesheet" href="@/CSS/global.css">
+    <link rel="icon" type="image/svg+xml" href="../@/SVG/icon.svg">
+    <link rel="stylesheet" href="../@/CSS/global.css">
 
     <title>ffuffix</title>
 
-    <script defer src="@/JS/sidebar.js"></script>
-    <script defer src="@/JS/topbar.js"></script>
+    <script defer src="../@/JS/sidebar.js"></script>
+    <script defer src="../@/JS/topbar.js"></script>
 </head>
 
 <body>
     <header class="topbar">
         <div class="logo">
-            <img src="@/SVG/ffuffix.svg" alt="FFUFFIX" height="32">
+            <img src="../@/SVG/ffuffix.svg" alt="FFUFFIX" height="32">
         </div>
         <div class="sidebar-toggle" id="sidebar-toggle-button">
-            <img src="@/SVG/sidebarshown.svg" alt="Open Sidebar" height="26" id="sidebar-open-icon"
+            <img src="../@/SVG/sidebarshown.svg" alt="Open Sidebar" height="26" id="sidebar-open-icon"
                 style="display: inline-block;">
-            <img src="@/SVG/sidebarhidden.svg" alt="Close Sidebar" height="26" id="sidebar-close-icon"
+            <img src="../@/SVG/sidebarhidden.svg" alt="Close Sidebar" height="26" id="sidebar-close-icon"
                 style="display: none;">
         </div>
     </header>
 
-    <nav class="sidebar" id="sidebar">
+       <nav class="sidebar" id="sidebar">
         <ul class="sidebar-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/art">Art</a></li>
+            <li><a href="/contact">Contact</a></li>
         </ul>
     </nav>
-
     <div id="sidebar-overlay" class="sidebar-overlay"></div>
 
     <main id="main-content">
-        <!-- Regular Content Example -->
-        <div style="padding: 40px 20px; max-width: 800px; margin: 0 auto;">
-            <h1 style="font-size: 3rem; margin-bottom: 0.5rem;">Hello!</h1>
-            <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem;">
-                This is an example of regular text content outside of cards. It uses basic styling and maintains readability 
-                through proper line height and font sizing.
-            </p>
 
-            <h3 style="font-size: 1.8rem; margin: 2rem 0 1rem;">Section Title</h3>
-            <p style="color: var(--ac-5); margin-bottom: 1rem;">A smaller subtitle to break up content</p>
-            <p style="line-height: 1.6; margin-bottom: 2rem;">
-                Here's another paragraph showing how regular text content can be structured. Notice how we maintain consistent 
-                spacing and typography without using cards.
+        <div style="padding: 40px 20px; max-width: 800px; margin: 0 auto; text-align: center;">
+            <h1 style="font-size: 3rem; margin-bottom: 0.5rem;">Art Collection</h1>
+            <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem; color: var(--ac-5);">
+                That's strange, there's nothing here yet!
             </p>
         </div>
 
-        <!-- Card Section Example -->
-        <section class="card-section g-silver-1">
-            <h2>Card-Based Content</h2>
-            <p>This shows how cards differ from regular content.</p>
-        </section>
 
-        <!-- More Regular Content -->
-        <div style="padding: 40px 20px; max-width: 800px; margin: 0 auto;">
-            <h2 style="font-size: 2rem; margin-bottom: 1rem;">Another Regular Section</h2>
-            <h4 style="font-size: 1.4rem; color: var(--ac-4); margin-bottom: 1.5rem;">Smaller Subtitle Style</h4>
-            <p style="line-height: 1.6; margin-bottom: 1rem;">
-                This demonstrates how regular content sections can be mixed with card sections. Each has its own purpose 
-                and visual hierarchy.
-            </p>
-            <ul style="margin: 1rem 0 2rem 2rem; line-height: 1.6;">
-                <li>List items can be included</li>
-                <li>To break up the content</li>
-                <li>And provide structured information</li>
-            </ul>
-        </div>
-
-        <!-- Final Card Example -->
-        <section class="card-section g-silver-1">
-            <h2>Back to Cards</h2>
-            <p>Showing the contrast between regular and card-based content.</p>
-        </section>
     </main>
-
+    
 </body>
 
 </html>
