@@ -9,10 +9,11 @@
     <link rel="icon" type="image/svg+xml" href="../@/SVG/icon.svg">
     <link rel="stylesheet" href="../@/CSS/global.css">
 
-    <title>ffuffix</title>
+    <title>art @ ffuffix</title>
 
     <script defer src="../@/JS/sidebar.js"></script>
     <script defer src="../@/JS/topbar.js"></script>
+    <script defer src="../@/JS/lightbox.js"></script>
 </head>
 
 <body>
@@ -39,16 +40,41 @@
 
     <main id="main-content">
 
-        <div style="padding: 40px 20px; max-width: 800px; margin: 0 auto; text-align: center;">
+        <div style="padding: 40px 20px; max-width: 1000px; margin: 0 auto; text-align: center;">
             <h1 style="font-size: 3rem; margin-bottom: 0.5rem;">Art Collection</h1>
             <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem; color: var(--ac-5);">
-                That's strange, there's nothing here yet!
+                A small selection of pieces - click to view full size!
             </p>
+
+            <section class="gallery" aria-label="Art gallery">
+                <a class="gallery-item" href="../@/Images/bunny1_portrait.png" target="_blank" rel="noopener"
+                   aria-label="Open Bunny 1" data-index="0">
+                    <img src="../@/Images/bunny1_portrait.png" alt="Bunny portrait" />
+                    <span class="gallery-caption">Bunny 1</span>
+                </a>
+
+                <a class="gallery-item" href="../@/Images/bunny2_landscape.png" target="_blank" rel="noopener"
+                   aria-label="Open Bunny 2" data-index="1">
+                    <img src="../@/Images/bunny2_landscape.png" alt="Bunny landscape" />
+                    <span class="gallery-caption">Bunny 2</span>
+                </a>
+            </section>
+
         </div>
 
-
     </main>
-    
+
+    <!-- Lightbox modal -->
+    <div class="lightbox" role="dialog" aria-modal="true" aria-hidden="true" id="lightbox" tabindex="-1">
+        <button class="lightbox-close" id="lb-close" aria-label="Close preview">&times;</button>
+        <button class="lightbox-nav lightbox-prev" id="lb-prev" aria-label="Previous image">&#10094;</button>
+        <div class="lightbox-content" id="lb-content">
+            <img id="lb-img" src="" alt="">
+            <div class="lightbox-caption" id="lb-caption"></div>
+        </div>
+        <button class="lightbox-nav lightbox-next" id="lb-next" aria-label="Next image">&#10095;</button>
+    </div>
+
 </body>
 
 </html>
