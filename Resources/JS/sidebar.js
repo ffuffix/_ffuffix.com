@@ -17,12 +17,10 @@ document.addEventListener('DOMContentLoaded', function () {
             Sidebar.classList.remove('open');
             OpenIcon.style.display = 'inline-block';
             CloseIcon.style.display = 'none';
-            MainContent.style.marginLeft = '0';
         } else {
             Sidebar.classList.add('open');
             OpenIcon.style.display = 'none';
             CloseIcon.style.display = 'inline-block';
-            MainContent.style.marginLeft = '220px';
         }
 
         SET_SIDEBAR_STATE(!Open);
@@ -33,12 +31,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const savedState = localStorage.getItem('sidebar');
 
-   if (savedState !== null) {
+    if (savedState !== null) {
         if (savedState === 'true') {
-            TOGGLE_SIDEBAR();
-        }
-    } else {
-        if (window.innerWidth >= 769) {
             TOGGLE_SIDEBAR();
         }
     }

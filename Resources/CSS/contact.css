@@ -1,0 +1,212 @@
+
+/* Contact Section */
+.contact-section {
+    padding: 40px 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.contact-section h1 {
+    text-align: center;
+    margin-bottom: 12px;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--foreground);
+}
+
+.contact-intro {
+    text-align: center;
+    margin-bottom: 48px;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: var(--ac-5);
+}
+
+
+/* Contact Grid */
+.contact-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+
+/* Contact Card */
+.contact-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    border-radius: 6px;
+    background: transparent;
+    border: 1px solid var(--foreground);
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--foreground);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    overflow: visible;
+}
+
+.contact-card:hover {
+    transform: scale(1.12);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
+}
+
+.contact-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.contact-icon i {
+    width: 20px;
+    height: 20px;
+    color: var(--foreground);
+}
+
+.contact-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    position: relative;
+    z-index: 1;
+    flex: 1;
+}
+
+.contact-card h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.contact-handle {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--ac-5);
+}
+
+.contact-link {
+    margin: 0;
+    font-size: 0.75rem;
+    color: var(--ac-5);
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.15s ease, max-height 0.15s ease;
+}
+
+.contact-card:hover .contact-link {
+    opacity: 1;
+    max-height: 20px;
+}
+
+
+/* Primary Contact Card (Email) - Retro Style */
+.contact-card-primary {
+    background: var(--background);
+    border: 2px dashed var(--foreground);
+    color: var(--foreground);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    margin-top: 24px;
+    position: relative;
+    gap: 0;
+}
+
+.contact-card-primary::before {
+    display: none;
+}
+
+.contact-card-primary::after {
+    content: '★';
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    font-size: 1rem;
+    color: var(--foreground);
+    opacity: 0.6;
+    transform: rotate(180deg);
+}
+
+.contact-card-primary::before {
+    content: '★';
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    font-size: 1rem;
+    color: var(--foreground);
+    opacity: 0.6;
+}
+
+.contact-card-primary h3 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+}
+
+.contact-card-primary .contact-handle {
+    color: var(--ac-5);
+    letter-spacing: 0.5px;
+}
+
+.contact-card-primary:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: var(--foreground);
+}
+
+
+/* Small screens */
+@media (max-width: 768px) {
+    .contact-section {
+        padding: 24px 16px;
+    }
+
+    .contact-grid {
+        gap: 10px;
+    }
+
+    .contact-card {
+        padding: 14px 16px;
+        gap: 12px;
+    }
+
+    .contact-icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .contact-icon i {
+        width: 18px;
+        height: 18px;
+    }
+
+    .contact-card h3 {
+        font-size: 0.95rem;
+    }
+
+    .contact-handle {
+        font-size: 0.8rem;
+    }
+
+    .contact-card-primary {
+        padding: 16px;
+        margin-top: 16px;
+    }
+
+    .contact-section h1 {
+        margin-bottom: 8px;
+    }
+
+    .contact-intro {
+        margin-bottom: 32px;
+    }
+}

@@ -6,24 +6,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/svg+xml" href="../@/SVG/icon.svg">
-    <link rel="stylesheet" href="../@/CSS/global.css">
+    <link rel="icon" type="image/svg+xml" href="../Resources/ICO/icon.ico">
+    <link rel="stylesheet" href="../Resources/CSS/global.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
 
     <title>contact @ ffuffix</title>
 
-    <script defer src="../@/JS/sidebar.js"></script>
-    <script defer src="../@/JS/topbar.js"></script>
+    <script defer src="../Resources/JS/sidebar.js"></script>
+    <script defer src="../Resources/JS/topbar.js"></script>
 </head>
 
 <body>
     <header class="topbar">
-        <div class="logo">
-            <img src="../@/SVG/ffuffix.svg" alt="FFUFFIX" height="32">
-        </div>
+        <a href="/" class="logo">
+            <img src="../Resources/SVG/ffuffix.svg" alt="FFUFFIX" height="32">
+        </a>
         <div class="sidebar-toggle" id="sidebar-toggle-button">
-            <img src="../@/SVG/sidebarshown.svg" alt="Open Sidebar" height="26" id="sidebar-open-icon"
+            <img src="../Resources/SVG/sidebarshown.svg" alt="Open Sidebar" height="26" id="sidebar-open-icon"
                 style="display: inline-block;">
-            <img src="../@/SVG/sidebarhidden.svg" alt="Close Sidebar" height="26" id="sidebar-close-icon"
+            <img src="../Resources/SVG/sidebarhidden.svg" alt="Close Sidebar" height="26" id="sidebar-close-icon"
                 style="display: none;">
         </div>
     </header>
@@ -37,48 +38,58 @@
     </nav>
     <div id="sidebar-overlay" class="sidebar-overlay"></div>
 
-    <main id="main-content">
+    <main id="content">
 
-        <div style="padding: 40px 20px; max-width: 800px; margin: 0 auto;">
-            <h1 style="font-size: 3rem; margin-bottom: 0.5rem;">Contact</h1>
-            <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem; color: var(--ac-5)">
-                Under here you can find all of the platforms i'm currently active on.
-            </p>
+        <section class="contact-section">
+            <h1>Contact</h1>
+            <p class="contact-intro">Find me on these platforms or reach out via email</p>
 
-            <ul style="margin: 1rem 0 2rem 2rem; line-height: 1.8;">
-                <li style="margin-bottom: 1.5rem; font-size: 1.4rem;">
-                    <a class="contact-link" href="https://discord.com/users/1197946785864372244" target="_blank"
-                        style="color: inherit; text-decoration: none;">
-                        Discord
-                        <p style="color: var(--ac-4); font-size: 1.1rem">ffuffix</p>
-                    </a>
-                </li>
-                <li style="margin-bottom: 1.5rem; font-size: 1.4rem;">
-                    <a class="contact-link" href="https://twitter.com/ffuffix" target="_blank"
-                        style="color: inherit; text-decoration: none;">
-                        Twitter
-                        <p style="color: var(--ac-4); font-size: 1.1rem;">@ffuffix</p>
-                    </a>
-                </li>
-                <li style="margin-bottom: 1.5rem; font-size: 1.4rem;">
-                    <a class="contact-link" href="https://www.roblox.com/users/5415996074/profile" target="_blank"
-                        style="color: inherit; text-decoration: none;">
-                        Roblox
-                        <p style="color: var(--ac-4); font-size: 1.1rem;">affuffix</p>
-                    </a>
-                </li>
-            </ul>
+            <div class="contact-grid">
+                <a href="https://discord.com/users/1197946785864372244" target="_blank" rel="noopener" class="contact-card">
+                    <div class="contact-icon">
+                        <i data-lucide="message-circle"></i>
+                    </div>
+                    <div class="contact-card-content">
+                        <h3>Discord</h3>
+                        <p class="contact-handle">ffuffix</p>
+                        <p class="contact-link">discord.com/users/1197946785864372244</p>
+                    </div>
+                </a>
 
-            <div style="margin-top: 3rem; text-align: center;">
-                <p style="color: var(--ac-5); font-size: 1.2rem; margin-bottom: 1.5rem;">Or would you rather email me?</p>
-                <a href="mailto:ffuffix@gmail.com" class="g-silver-1"
-                    style="color: inherit; text-decoration: none; display: inline-block; padding: 1rem 2rem; border-radius: 6px; transition: transform 0.3s ease; background-size: 400% 400%; animation: gradientShift 15s ease infinite;">
-                    <span style="font-size: 1.4rem;">Email</span>
-                    <p style="color: var(--ac-4); font-size: 1.1rem; margin-top: 0.25rem;">ffuffix@gmail.com</p>
+                <a href="https://x.com/ffuffix" target="_blank" rel="noopener" class="contact-card">
+                    <div class="contact-icon">
+                        <i data-lucide="twitter"></i>
+                    </div>
+                    <div class="contact-card-content">
+                        <h3>Twitter / X</h3>
+                        <p class="contact-handle">@ffuffix</p>
+                        <p class="contact-link">https://x.com/ffuffix</p>
+                    </div>
+                </a>
+
+                <a href="https://www.roblox.com/users/5415996074/profile" target="_blank" rel="noopener" class="contact-card">
+                    <div class="contact-icon">
+                        <i data-lucide="gamepad2"></i>
+                    </div>
+                    <div class="contact-card-content">
+                        <h3>Roblox</h3>
+                        <p class="contact-handle">affuffix</p>
+                        <p class="contact-link">roblox.com/users/5415996074</p>
+                    </div>
+                </a>
+
+                <a href="mailto:ffuffix@gmail.com" class="contact-card contact-card-primary">
+                    <h3>Email</h3>
+                    <p class="contact-handle">ffuffix@gmail.com</p>
                 </a>
             </div>
-        </div>
+        </section>
+
     </main>
+
+    <script>
+        lucide.createIcons();
+    </script>
 
 </body>
 

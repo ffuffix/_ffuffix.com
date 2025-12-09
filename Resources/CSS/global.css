@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;700;900');
+@import './bar.css';
+@import './hero.css';
+@import './art.css';
+@import './contact.css';
+
+:root {
+    --border-radius: 8px;
+    --background: #050505;
+    --foreground: #ffffff;
+    
+    --glow-primary: #7c3aed;
+    --glow-secondary: #4c1d95;
+    --glow-accent: #c4b5fd;
+
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-bg: rgba(10, 10, 10, 0.6);
+
+    --ac-1: #000000;
+    --ac-2: #1b1b1b;
+    --ac-3: #242424;
+    --ac-4: #808080;
+    --ac-5: #a5a5a5;
+    --ac-6: #d0d0d0;
+    --ac-7: #ebebeb;
+
+    --ffuffix-color: #ff667c;
+    
+    --font-primary: 'Inter', sans-serif;
+
+    --space-0: 0px;
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 16px;
+    --space-4: 24px;
+    --space-5: 32px;
+    --space-6: 48px;
+
+    --rainbow: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--ac-3) var(--ac-1);
+}
+
+body {
+    font-family: var(--font-primary);
+    background: var(--background);
+    color: var(--foreground);
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('../Images/noise.png');
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+p {
+    margin-bottom: var(--space-4);
+    line-height: 1.6;
+    margin: auto;
+    color: var(--ac-4);
+}
+
+h1, h2, h3, h4 {
+    margin-top: 0;
+    font-weight: 700;
+    margin-bottom: var(--space-3);
+    line-height: 1.12;
+}
+
+h1 { font-size: clamp(1.6rem, 3.6vw, 2.25rem); font-weight: 800; }
+h2 { font-size: clamp(1.25rem, 3vw, 1.75rem); }
+h3 { font-size: clamp(1.1rem, 2.4vw, 1.25rem); }
+
+
+main {
+    margin-top: 64px;
+    padding: 24px var(--space-3);
+    transition: margin-left 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+
+section {
+    margin-bottom: var(--space-6);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 var(--space-3);
+}
+
+
+::selection {
+    background: var(--foreground);
+    color: var(--ac-1);
+}

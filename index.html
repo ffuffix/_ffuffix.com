@@ -1,27 +1,29 @@
+<!-- FFUFFIX -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/svg+xml" href="@/SVG/icon.svg">
-    <link rel="stylesheet" href="@/CSS/global.css">
+
+    <link rel="icon" type="image/svg+xml" href="Resources/ICO/icon.ico">
+    <link rel="stylesheet" href="Resources/CSS/global.css">
 
     <title>ffuffix</title>
 
-    <script defer src="@/JS/sidebar.js"></script>
-    <script defer src="@/JS/topbar.js"></script>
+    <script defer src="Resources/JS/sidebar.js"></script>
+    <script defer src="Resources/JS/topbar.js"></script>
 </head>
 
 <body>
     <header class="topbar">
-        <div class="logo">
-            <img src="@/SVG/ffuffix.svg" alt="FFUFFIX" height="32">
-        </div>
+        <a href="/" class="logo">
+            <img src="Resources/SVG/ffuffix.svg" alt="FFUFFIX" height="32">
+        </a>
         <div class="sidebar-toggle" id="sidebar-toggle-button">
-            <img src="@/SVG/sidebarshown.svg" alt="Open Sidebar" height="26" id="sidebar-open-icon"
+            <img src="Resources/SVG/sidebarshown.svg" alt="Open Sidebar" height="26" id="sidebar-open-icon"
                 style="display: inline-block;">
-            <img src="@/SVG/sidebarhidden.svg" alt="Close Sidebar" height="26" id="sidebar-close-icon"
+            <img src="Resources/SVG/sidebarhidden.svg" alt="Close Sidebar" height="26" id="sidebar-close-icon"
                 style="display: none;">
         </div>
     </header>
@@ -36,32 +38,33 @@
 
     <div id="sidebar-overlay" class="sidebar-overlay"></div>
 
-    <main id="main-content">
-      
-        <div style="padding: 40px 20px; max-width: 800px; margin: 0 auto;">
-            <h1 style="font-size: 3rem; margin-bottom: 0.5rem;">Hello!</h1>
-            <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem;">
-                This is currently under construction.
-                Basic styling and a little bit of love went into this, this is very inspired by OpenAI's website
-            </p>
+    <main id="content">
 
-            <h3 style="font-size: 1.8rem; margin: 2rem 0 .2rem;">What is this?</h3>
-            <p style="color: var(--ac-5); margin-bottom: 1rem;">ffuffix.com of course!</p>
-            <p style="line-height: 1.6; margin-bottom: 2rem;">
-                This is my personal website, where I share my projects, art, and other creative works.
-                It's a simple site, but I hope it reflects my style and interests, to you, the visitor.
-                Have complaints? Suggestions? Feel free to reach out via the contact page.
+        <section class="hero">
+            <div class="hero-content">
+                <h1>FFUFFIX</h1>
+               <!--- <p>Independent artist and developer</p> (text is hidden, so we comment this out until it gets fixed) -->
+            </div>
 
-            </p>
-        </div>
-
-
-        <section class="card g-silver-1">
-            <h2>Digital Artwork</h2>
-            <p>Check out the amazing art pieces, free of charge</p>
+            <img src="Resources/Images/bunny_hero.png" alt="Character Illustration" class="hero-image">
         </section>
+
+        <div class="separator"></div>
+
+        <section class="txt">
+            <h4>INTRO</h4>
+            <h1>HELLO, WELCOME TO MY WEBSITE</h1>
+            <p>I'm ffuffix, an independent artist and developer. This is my personal website where I showcase my work and projects!</p>
+            <p>Feel free to explore my art portfolio and get in touch with me through the contact page.</p>
+        </section>
+
+         <section class="txt">
+            <h4>NAVIGATION</h4>
+            <h1>HOW DO I NAVIGATE THROUGH THIS WEBSITE?</h1>
+            <p>Use the sidebar to navigate through different sections of the site. You can toggle the sidebar open and closed using the button in the top left</p>
+        </section>
+
     </main>
-    
 </body>
 
 </html>
