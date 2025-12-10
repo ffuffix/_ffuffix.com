@@ -1,18 +1,35 @@
-<!-- FFUFFIX -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <script type="text/javascript">
+        // MIT License - https://github.com/rafgraph/spa-github-pages
+        (function (l) {
+            if (l.search[1] === '/') {
+                var decoded = l.search.slice(1).split('&').map(function (s) {
+                    return s.replace(/~and~/g, '&')
+                }).join('?');
+                window.history.replaceState(null, null,
+                    l.pathname.slice(0, -1) + decoded + l.hash
+                );
+            }
+        }(window.location))
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="icon" type="image/svg+xml" href="Resources/ICO/icon.ico">
     <link rel="stylesheet" href="Resources/CSS/global.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
 
     <title>ffuffix</title>
 
     <script defer src="Resources/JS/sidebar.js"></script>
     <script defer src="Resources/JS/topbar.js"></script>
+    <script defer src="Resources/JS/lightbox.js"></script>
+    <script defer src="Resources/JS/router.js"></script>
+    <script defer src="Resources/JS/app.js"></script>
 </head>
 
 <body>
@@ -38,33 +55,7 @@
 
     <div id="sidebar-overlay" class="sidebar-overlay"></div>
 
-    <main id="content">
-
-        <section class="hero">
-            <div class="hero-content">
-                <h1>FFUFFIX</h1>
-               <!--- <p>Independent artist and developer</p> (text is hidden, so we comment this out until it gets fixed) -->
-            </div>
-
-            <img src="Resources/Images/bunny_hero.png" alt="Character Illustration" class="hero-image">
-        </section>
-
-        <div class="separator"></div>
-
-        <section class="txt">
-            <h4>INTRO</h4>
-            <h1>HELLO, WELCOME TO MY WEBSITE</h1>
-            <p>I'm ffuffix, an independent artist and developer. This is my personal website where I showcase my work and projects!</p>
-            <p>Feel free to explore my art portfolio and get in touch with me through the contact page.</p>
-        </section>
-
-         <section class="txt">
-            <h4>NAVIGATION</h4>
-            <h1>HOW DO I NAVIGATE THROUGH THIS WEBSITE?</h1>
-            <p>Use the sidebar to navigate through different sections of the site. You can toggle the sidebar open and closed using the button in the top left</p>
-        </section>
-
-    </main>
+    <main id="content"></main>
 </body>
 
 </html>
