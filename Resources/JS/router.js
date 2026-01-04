@@ -76,6 +76,9 @@ class Router {
                 window.lightboxInit();
             }
         });
+
+        // 3. Dispatch route change event for animations
+        document.dispatchEvent(new CustomEvent('routeChange', { detail: { path } }));
     }
 }
 

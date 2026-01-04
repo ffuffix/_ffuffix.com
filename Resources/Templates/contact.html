@@ -1,7 +1,8 @@
-<section class="contact-section">
-    <h1>Contact</h1>
-    <p class="contact-intro">Find me on these platforms or reach out via email</p>
+<div class="contact-shader-container">
+    <canvas id="contact-canvas"></canvas>
+</div>
 
+<section class="contact-section">
     <div class="contact-grid">
         <a href="https://discord.com/users/1197946785864372244" target="_blank" rel="noopener" class="contact-card">
             <div class="contact-icon">
@@ -36,12 +37,30 @@
             </div>
         </a>
 
+         <a href="https://github.com/ffuffix" target="_blank" rel="noopener" class="contact-card">
+            <div class="contact-icon">
+                <i data-lucide="github"></i>
+            </div>
+            <div class="contact-card-content">
+                <h3>Github</h3>
+                <p class="contact-handle">ffuffix</p>
+                <p class="contact-link">github.com/ffuffix</p>
+            </div>
+        </a>
+
         <a href="mailto:ffuffix@gmail.com" class="contact-card contact-card-primary">
-            <h3>Email</h3>
-            <p class="contact-handle">ffuffix@gmail.com</p>
+            <div class="contact-icon">
+                <i data-lucide="mail"></i>
+            </div>
+            <div class="contact-card-content">
+                <h3>Email</h3>
+                <p class="contact-handle">ffuffix@gmail.com</p>
+                <p class="contact-link">Send Email</p>
+            </div>
         </a>
     </div>
 </section>
+
 
 <script>
     if (window.lucide) {

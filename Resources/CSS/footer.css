@@ -1,0 +1,125 @@
+/* Footer */
+.site-footer {
+    position: relative;
+    z-index: 10; /* Ensure footer is above fixed background elements */
+    margin-top: var(--space-6);
+    padding: var(--space-6) var(--space-4);
+    background: linear-gradient(180deg, transparent 0%, rgb(0, 0, 0) 100%);
+    border-top: 1px solid var(--glass-border);
+}
+
+.site-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--ffuffix-color), transparent);
+    opacity: 0.5;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: var(--space-6);
+    flex-wrap: wrap;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.footer-logo {
+    height: 28px;
+    width: auto;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.footer-logo:hover {
+    opacity: 1;
+}
+
+.footer-tagline {
+    font-size: 0.875rem;
+    color: var(--ac-4);
+    margin: 0;
+}
+
+.footer-nav {
+    display: flex;
+    gap: var(--space-6);
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.footer-links h4 {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ac-5);
+    margin-bottom: var(--space-2);
+}
+
+.footer-links a {
+    font-size: 0.875rem;
+    color: var(--ac-4);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--foreground);
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: var(--space-5) auto 0;
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--glass-border);
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 0.75rem;
+    color: var(--ac-4);
+    margin: 0;
+}
+
+/* Footer Responsive */
+@media (max-width: 640px) {
+    .site-footer {
+        padding: var(--space-5) var(--space-3);
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: var(--space-5);
+    }
+
+    .footer-brand {
+        align-items: center;
+    }
+
+    .footer-nav {
+        justify-content: center;
+    }
+
+    .footer-links {
+        align-items: center;
+    }
+}

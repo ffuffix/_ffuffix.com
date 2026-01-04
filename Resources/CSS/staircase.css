@@ -1,0 +1,82 @@
+
+.staircase-hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 24px 80px;
+    gap: 48px;
+}
+
+/* Title & Tagline */
+.staircase-hero-content {
+    text-align: center;
+}
+
+.staircase-title {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    margin-bottom: 12px;
+    color: #fff;
+}
+
+.staircase-tagline {
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    color: var(--ac-4);
+    font-weight: 400;
+}
+
+/* Diagram */
+.staircase-visual {
+    width: 100%;
+    max-width: 500px;
+}
+
+.staircase-svg {
+    width: 100%;
+    height: auto;
+}
+
+.stair-line {
+    opacity: 0.4;
+}
+
+.stair-node circle {
+    transition: transform 0.2s ease;
+}
+
+.stair-node:hover circle {
+    transform: scale(1.3);
+}
+
+/* CTA */
+.staircase-cta .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.staircase-cta .btn i {
+    width: 16px;
+    height: 16px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .staircase-hero {
+        padding: 100px 20px 60px;
+        gap: 32px;
+    }
+    
+    .staircase-visual {
+        overflow-x: auto;
+        margin: 0 -20px;
+        padding: 0 20px;
+    }
+    
+    .staircase-svg {
+        min-width: 400px;
+    }
+}
