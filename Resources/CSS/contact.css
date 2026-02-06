@@ -1,4 +1,41 @@
 
+/* Loading Screen */
+.contact-loading {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background: var(--background, #050505);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.6s var(--ease-out-expo, ease-out);
+    pointer-events: all;
+}
+
+.contact-loading.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.contact-loading.hidden {
+    display: none;
+}
+
+.contact-loading-spinner {
+    width: 28px;
+    height: 28px;
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-top-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    animation: contact-spin 0.8s linear infinite;
+}
+
+@keyframes contact-spin {
+    to { transform: rotate(360deg); }
+}
+
 .contact-shader-container {
     position: fixed;
     inset: 0;
@@ -14,6 +51,8 @@
     width: 100vw;
     height: 100vh;
     display: block;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
 }
 
 /* Contact Section */
@@ -46,26 +85,26 @@
     margin: 0 0 16px;
     font-size: clamp(3rem, 6vw, 5rem);
     color: #ffffff;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
     line-height: 1;
 }
 
 .contact-intro {
     margin: 0;
     color: var(--ac-5);
-    font-size: 1.1rem;
+    font-size: 1rem;
     max-width: 480px;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 
 /* Contact Grid */
 .contact-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 12px;
     width: 100%;
-    max-width: 700px;
+    max-width: 680px;
     margin: 0 auto;
     padding: 20px;
     z-index: 4;
@@ -77,82 +116,96 @@
     position: relative;
     display: flex;
     align-items: center;
-    gap: 20px;
-    padding: 24px;
+    gap: 18px;
+    padding: 20px 24px;
     border-radius: var(--border-radius);
-    background: rgba(10, 10, 10, 0.6);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.06);
     cursor: pointer;
     text-decoration: none;
     color: var(--foreground);
-    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: all 0.3s var(--ease-out-expo);
     overflow: hidden;
 }
 
+.contact-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.04), transparent 40%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.contact-card:hover::before {
+    opacity: 1;
+}
+
 .contact-card:hover {
-    transform: translateY(-4px);
-    background: rgba(20, 20, 20, 0.8);
-    border-color: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.6);
 }
 
 .contact-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
     flex-shrink: 0;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.05);
-    color: var(--foreground);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--ac-5);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: all 0.3s var(--ease-out-expo);
 }
 
 .contact-card:hover .contact-icon {
     background: var(--foreground);
     color: var(--background);
     transform: scale(1.05);
-    border-color: var(--foreground);
+    border-color: transparent;
 }
 
 .contact-icon i {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
 }
 
 .contact-card-content {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 2px;
     flex: 1;
     min-width: 0;
     position: relative;
     overflow: hidden;
     height: auto;
-    min-height: 42px;
+    min-height: 40px;
     justify-content: center;
 }
 
 .contact-card h3 {
     margin: 0;
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     font-weight: 600;
     color: var(--foreground);
     line-height: 1.2;
+    letter-spacing: -0.02em;
 }
 
 .contact-handle {
     margin: 0;
-    font-size: 0.9rem;
-    color: var(--ac-5);
+    font-size: 0.85rem;
+    color: var(--ac-4);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.4s ease;
+    transition: transform 0.4s var(--ease-out-expo), opacity 0.4s ease;
     transform-origin: center left;
 }
 
@@ -162,14 +215,14 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    font-size: 0.9rem;
-    color: var(--ac-4); /* Darker color */
+    font-size: 0.85rem;
+    color: var(--ac-4);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     opacity: 0;
     transform: translateY(100%);
-    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.4s ease;
+    transition: transform 0.4s var(--ease-out-expo), opacity 0.4s ease;
 }
 
 .contact-card:hover .contact-handle {
@@ -185,12 +238,12 @@
 /* Primary Card (Email) */
 .contact-card-primary {
     grid-column: 1 / -1;
-    background: linear-gradient(135deg, var(--ac-2), var(--ac-1));
-    border: 1px solid var(--ac-3);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .contact-card-primary:hover {
-    border-color: var(--foreground);
+    border-color: rgba(255, 255, 255, 0.15);
 }
 
 /* Small screens */
@@ -220,19 +273,19 @@
         width: 100%;
         max-width: 600px;
         grid-template-columns: 1fr;
-        gap: 12px;
+        gap: 8px;
         margin: 0;
         padding: 0;
     }
 
     .contact-card {
-        padding: 14px 16px;
-        gap: 12px;
+        padding: 16px 18px;
+        gap: 14px;
     }
 
     .contact-icon {
-        width: 28px;
-        height: 28px;
+        width: 36px;
+        height: 36px;
     }
 
     .contact-icon i {
@@ -241,7 +294,7 @@
     }
 
     .contact-card h3 {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
     }
 
     .contact-handle, .contact-link {
@@ -249,8 +302,8 @@
     }
 
     .contact-card-primary {
-        padding: 16px;
-        margin-top: 16px;
+        padding: 16px 18px;
+        margin-top: 8px;
     }
 
     .contact-section h1 {

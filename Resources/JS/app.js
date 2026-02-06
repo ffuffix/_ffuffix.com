@@ -26,7 +26,7 @@
     window.router.register('/staircase', templates['/staircase']);
     window.router.register('/art', templates['/art']);
     window.router.register('/contact', templates['/contact']);
-    //window.router.register('404', templates['404']);
+    window.router.register('404', templates['404']);
 
     window.router.handleNavigation();
 })();
@@ -51,7 +51,7 @@ function initScrollReveal() {
 
 // Interactive skill panels - mouse tracking glow
 function initSkillPanelEffects() {
-    const panels = document.querySelectorAll('.skill-panel');
+    const panels = document.querySelectorAll('.skill-panel, .feature-item, .contact-card');
     
     panels.forEach(panel => {
         panel.addEventListener('mousemove', (e) => {
@@ -150,33 +150,65 @@ function initParallax() {
     });
 }
 
-// Scroll indicator auto-hide
+// Scroll indicator + topbar scroll state
 function initScrollIndicator() {
     const scrollOverlay = document.getElementById('scroll-overlay');
-    if (!scrollOverlay) return;
+    const topbar = document.querySelector('.topbar');
+    const currentPath = window.location.pathname;
+    const isHome = currentPath === '/' || currentPath === '/home';
     
-    let lastScrollY = window.scrollY;
+    // Only show scroll indicator on home page
+    if (scrollOverlay) {
+        if (isHome) {
+            scrollOverlay.style.display = '';
+            scrollOverlay.classList.remove('hidden');
+            // Fade in after a short delay (gives hero time to appear)
+            setTimeout(() => {
+                if (window.scrollY <= 100) {
+                    scrollOverlay.classList.add('visible');
+                }
+            }, 1500);
+        } else {
+            scrollOverlay.classList.remove('visible');
+            scrollOverlay.style.display = 'none';
+        }
+    }
+    
     let ticking = false;
     
-    function updateScrollIndicator() {
-        if (window.scrollY > 100) {
-            scrollOverlay.classList.add('hidden');
-        } else {
-            scrollOverlay.classList.remove('hidden');
+    function updateScrollState() {
+        const scrollY = window.scrollY;
+        
+        // Scroll indicator - fade on scroll (home only)
+        if (scrollOverlay && isHome) {
+            if (scrollY > 100) {
+                scrollOverlay.classList.add('hidden');
+            } else {
+                scrollOverlay.classList.remove('hidden');
+            }
         }
+        
+        // Topbar scroll style
+        if (topbar) {
+            topbar.classList.toggle('scrolled', scrollY > 20);
+        }
+        
         ticking = false;
     }
     
     window.addEventListener('scroll', () => {
         if (!ticking) {
-            requestAnimationFrame(updateScrollIndicator);
+            requestAnimationFrame(updateScrollState);
             ticking = true;
         }
     }, { passive: true });
+    
+    // Run immediately
+    updateScrollState();
 }
 
 // Re-initialize animations after route change
-document.addEventListener('routeChange', () => {
+document.addEventListener('routeChange', (e) => {
     setTimeout(() => {
         initScrollReveal();
         initSmoothScroll();
@@ -185,6 +217,7 @@ document.addEventListener('routeChange', () => {
         initSkillPanelEffects();
         initCounterAnimation();
         initMagneticButtons();
+        updateActiveNav(e.detail.path);
     }, 100);
 });
 
@@ -198,5 +231,63 @@ document.addEventListener('DOMContentLoaded', () => {
         initSkillPanelEffects();
         initCounterAnimation();
         initMagneticButtons();
+        updateActiveNav(window.location.pathname);
     }, 100);
+});
+
+// Active nav link highlighting
+function updateActiveNav(path) {
+    const links = document.querySelectorAll('.nav-links a');
+    links.forEach(link => {
+        const href = new URL(link.href, window.location.origin).pathname;
+        link.classList.toggle('active', href === path || (href === '/' && path === '/'));
+    });
+}
+
+// Canvas Manager - handles canvas initialization per route
+function initCanvas(path) {
+    // Safety check - force visible if no shader loads within 1s
+    setTimeout(() => {
+        document.body.classList.add('shader-ready');
+    }, 1000);
+
+    const isHome = path === '/' || path === '/home';
+    const isStaircase = path === '/staircase';
+    const isContact = path === '/contact';
+
+    // Home Shader (Singularity)
+    const homeCanvas = document.getElementById('singularity-canvas');
+    if (homeCanvas && window.SingularityShader && isHome) {
+        if (!window.homeShaderInstance) {
+            window.homeShaderInstance = new SingularityShader(homeCanvas);
+        }
+    } 
+    
+    // Staircase Shader
+    const staircaseCanvas = document.getElementById('staircase-canvas');
+    if (staircaseCanvas && window.SingularityShader && isStaircase) {
+         new SingularityShader(staircaseCanvas);
+    }
+    
+    // Contact Shader
+    const contactCanvas = document.getElementById('contact-canvas');
+    if (contactCanvas && window.ContactShader && isContact) {
+        new ContactShader(contactCanvas);
+    }
+
+    // fallback for pages without shaders (like 404 or others)
+    if (!isHome && !isStaircase && !isContact) {
+        document.body.classList.add('shader-ready');
+    }
+}
+
+// Hook into route change
+document.addEventListener('routeChange', (e) => {
+    initCanvas(e.detail.path);
+});
+
+// Also run on load
+document.addEventListener('DOMContentLoaded', () => {
+    const path = window.location.pathname;
+    initCanvas(path);
 });

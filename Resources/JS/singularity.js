@@ -258,6 +258,13 @@ class SingularityShader {
     render() {
         if (!this.isInitialized) return;
         
+        // Signal ready on first render frame
+        if (!document.body.classList.contains('shader-ready')) {
+            requestAnimationFrame(() => {
+                document.body.classList.add('shader-ready');
+            });
+        }
+
         const gl = this.gl;
         
         // Smoothing for mouse
